@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* SPACE */
+#space {
+    background: #000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    font-size: 100%;
+}
+
+/* STARS */
+#stars {
+    list-style: none;
+}
+
+.star {
+    height: .5em;
+    width: .5em;
+    position: absolute;
+    left: 110%;
+}
+
+.star:after,
+.star:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #fff;
+    height: .8rem;
+    width: .2rem;
+    animation: star-blur 2s infinite ease-in;
+}
+
+.star:before {
+    transform: rotate(90deg);
+}
+.star:first-child {
+    animation: star-movement 3s infinite linear;
+    top: 20%;
+}
+.star:nth-child(2) {
+    animation: star-movement 5s infinite linear;
+    transform: scale(0.5, 0.5);
+    top: 40%;
+}
+.star:nth-child(3) {
+    animation: star-movement 7s infinite linear;
+    transform: scale(0.3, 0.3);
+    top: 60%;
+    animation-delay: .3s;
+}
+.star:nth-child(4) {
+    animation: star-movement 4s infinite linear;
+    top: 80%;
+}
+.star:nth-child(5) {
+    animation: star-movement 4.5s infinite linear;
+    transform: scale(0.7, 0.7);
+    top: 50%;
+    animation-delay: .4s;
+}
+.star:nth-child(6) {
+    animation: star-movement 6s infinite linear;
+    transform: scale(0.4, 0.4);
+    top: 90%;
+    animation-delay: .2s;
+}
+.star:nth-child(6) {
+    animation: star-movement 5.5s infinite linear;
+    transform: scale(0.8, 0.8);
+    top: 10%;
+    animation-delay: 1s;
+}
+.star:nth-child(6) {
+    animation: star-movement 12s infinite linear;
+    transform: scale(0.3, 0.3);
+    top: 8%;
+    animation-delay: 2s;
+}
+.star:nth-child(7) {
+    animation: star-movement 2.7s infinite linear;
+    animation-delay: 3s;
+    top: 97%;
+}
+
+@keyframes star-movement {
+    0%   { left: 100%; }
+    100% { left: 0; }
+}
+
+@keyframes star-blur {
+    0%   { filter: blur(0); }
+    50% { filter: blur(1px); }
+    100%   { filter: blur(0); }
+}
+
+/* ROCKET */
+.rocket {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6rem;
+    height: 11.4rem;
+    margin-top: -5.7rem;
+    animation: rocket-enter 2s ease-in-out,
+               rocket-bounce 1.5s infinite ease-in-out 2s;
+    transform: rotate(90deg);
+    transition: transform 1s ease-in-out;    
+    cursor: pointer;
+}
+
+
+
+.rocket:hover:before {
+    display: block;
+}
+
+.rocket .body {
+    position: absolute;
+    background: #ccc;
+    height: 11rem;
+    width: 6rem;
+    border-radius: 100% 100% 50% 50%;
+    border-top: .4rem solid #f5f5f5;
+    z-index: 10;
+}
+
+.rocket .tail {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 4rem;
+    width: 4rem;
+    background: #775858;
+    border-top-left-radius: 90%;
+    border-bottom-left-radius: 20%;
+    top: 7.4rem;
+    z-index: 5;
+}
+
+.rocket .tail.left {
+    left: -1.2rem;
+}
+
+.rocket .tail.right {
+    right: -1.2rem;
+    transform: scale(-1, 1);
+}
+
+.rocket::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background:#807373;
+    top: 100%;
+    left: 50%;
+    width: 3rem;
+    height: 1.1rem;
+    margin-left: -1.5rem;
+    border-radius: 0 0 60% 60%;   
+}
+
+.rocket:before {
+    content: '';
+    display: none;
+    position: absolute;
+    border: 0.4rem solid yellow;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-right: none;
+    width: 7.8rem;
+    height: 10.8rem;
+    border-radius: 100%;
+    bottom: 7%;
+    border-bottom: none;
+    border-left: none;
+    left: -14%;
+    animation: rocket-afterburn 2s infinite ease-in;
+}
+
+.window {
+    width: 3.6rem;
+    height: 3.6rem;
+    background: #e6d1ff;
+    border: .3rem solid #70647d;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-left: -1.8rem;
+    border-radius: 100%;
+    z-index: 15;
+    box-sizing: border-box;
+}
+
+.flame {
+    height: 36rem;
+    width: 0.3rem;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.7), rgba(255,255,255,0) );
+    position: relative;
+    bottom: -49%;
+    left: 50%;
+    margin-left: -.3rem;
+    top: 14rem;
+    filter: blur(1px);
+}
+
+@keyframes rocket-enter {
+    0%   { left: -10%; }
+    100%   { left: 50%; }
+}
+
+@keyframes rocket-bounce {
+    0%   { left: 50%; }
+    50% { left: 48%; }
+    100%   { left: 50%; }
+}
+
+@keyframes rocket-afterburn {
+    0%   { opacity: 0; }
+    20% { opacity: 1; }
+    30% { opacity: 0; }
+    50% { opacity: 0; }
+    60% { opacity: 1; }
+    75% { opacity: 0; }
+    90% { opacity: 1; }
+    100%   { opacity: 0; }
+}
